@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app = "meanhotel">
+<head>
+	<title>MEAN Hotel</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+</head>
+<body>
+
+	<mh-navigation></mh-navigation>
+
+	<div class="container">
+		<div ng-view></div>
+	</div>
+
+	
+
+	<!-- <footer class = "footer">
+		<div class = "container">
+			<p class = "text-muted text-center">
+				<a href="http://fullstacktraining.com"></a>
+			</p>
+
+			<p class = "text-muted text-center">
+				<small>&copy; My MEAN Application</small>
+			</p>
+		</div>
+	</footer> -->
+
+	<script type="text/javascript" src="jquery/jquery-2.1.4.js"></script>
+	<script src="../node_modules/angular/angular.js"></script>
+	<script src="../node_modules/angular-route/angular-route.js"></script>
+	<script src="../node_modules/angular-jwt/dist/angular-jwt.js"></script>
+	<script src="angular-app/app.js"></script>
+	<script src="angular-app/hotel-list/hotel-list-controller.js"></script>
+	<script src="angular-app/hotel-display/hotel-display-controller.js"></script>
+	<script src="angular-app/hotel-data-factory/hotel-data-factory.js"></script>
+	<script src="angular-app/hotel-rating/hotel-rating-directive.js"></script>
+	<script src="angular-app/register/register-controller.js"></script>
+	<script src="angular-app/navigation-directive/navigation-directive.js"></script>
+	<script src="angular-app/login/login-controller.js"></script>
+	<script src="angular-app/auth/auth-interceptor.js"></script>
+	<script src="angular-app/auth/auth-factory.js"></script>
+
+</body>
+</html>

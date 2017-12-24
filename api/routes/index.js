@@ -1,0 +1,50 @@
+var express = require("express");
+var router = express.Router();
+
+var ctrlHotels = require("../controllers/hotels.controllers.js");
+var ctrlReviews = require("../controllers/reviews.controllers.js");
+var ctrlUsers = require("../controllers/users.controllers.js");
+
+router
+	.route("/hotels")
+	.get(ctrlHotels.hotelsGetAll)
+	// .get(ctrlUsers.authenticate, ctrlHotels.hotelsGetAll)
+	.post(ctrlHotels.hotelAddOne);
+	// .post(function(req, res){
+	// console.log("POST the JSONs");
+	// res.json( {"jsonData" : "POST received"} );
+	// });
+
+router
+	.route("/hotels/:hotelId")
+	.get(ctrlHotels.hotelsGetOne)
+	.put(ctrlHotels.hotelsUpdateOne)
+	.delete(ctrlHotels.hotelsDeleteOne);
+
+// router
+// 	.route("/hotels/new")
+// 	.post(ctrlHotels.hotelAddOne);
+
+// Review routes
+router
+	.route("/hotels/:hotelId/reviews")
+	.get(ctrlReviews.reviewsGetAll)
+	.post(ctrlUsers.authenticate, ctrlReviews.reviewsAddOne);
+
+router
+	.route("/hotels/:hotelId/reviews/:reviewId")
+	.get(ctrlReviews.reviewsGetOne)
+	.put(ctrlReviews.reviewsUpdateOne)
+	.delete(ctrlReviews.reviewsDeleteOne)
+
+// Authentication
+
+router
+	.route("/users/register")
+	.post(ctrlUsers.register)
+
+router
+	.route("/users/login")
+	.post(ctrlUsers.login)
+
+module.exports = router;
